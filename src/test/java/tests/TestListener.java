@@ -20,14 +20,14 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
         System.out.println(String.format("======================================== FINISHED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
-        takeScreenshot(iTestResult);
+        takeScreenshot();
     }
 
 
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
-        takeScreenshot(iTestResult);
+        //takeScreenshot(iTestResult);
     }
 
 
@@ -36,18 +36,8 @@ public class TestListener implements ITestListener {
 
     }
 
-    private byte[] takeScreenshot(ITestResult iTestResult) {
-        ITestContext context = iTestResult.getTestContext();
-        try {
-            WebDriver driver = (WebDriver) context.getAttribute("driver");
-            if(driver != null) {
-                return AllureUtils.takeScreenshot(driver);
-            } else {
-                return new byte[] {};
-            }
-        } catch (NoSuchSessionException | IllegalStateException ex) {
-            return new byte[] {};
-        }
+    private byte[] takeScreenshot() {
+           return AllureUtils.takeScreenshot();
     }
 
 
