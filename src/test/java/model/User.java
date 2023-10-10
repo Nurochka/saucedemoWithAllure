@@ -4,6 +4,10 @@ public class User {
     private String name = "standard_user";
     private String password = "secret_sauce";
 
+    //берутся из Jenkins (Global Settings)  - чтобы запустить локально - раскоментить 4, 5 или передать в команду в параметре
+    //private String name = System.getenv("user_name");
+    //private String password = System.getenv("password");
+
     public User() {
     }
 

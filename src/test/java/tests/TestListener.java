@@ -1,19 +1,19 @@
 package tests;
 
-import org.openqa.selenium.NoSuchSessionException;
-import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
+import lombok.extern.log4j.Log4j2;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utils.AllureUtils;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 public class TestListener implements ITestListener {
 
 
+    //log вместо sout
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println((String.format("======================================== STARTING TEST %s ========================================", iTestResult.getName())));
+        log.info((String.format("======================================== STARTING TEST %s ========================================", iTestResult.getName())));
     }
 
 
